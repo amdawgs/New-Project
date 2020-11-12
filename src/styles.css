@@ -1,0 +1,85 @@
+.input-group-prepend {
+  max-width: 440px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.current-city {
+  font-size: 32px;
+  font-weight: 700;
+  padding-right: 130px;
+}
+
+.current-temp {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  padding-right: 10px;
+  border-right: 2px solid #000000;
+}
+
+.current-hi,
+.current-lo {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.current-icon-desc {
+  text-align: center;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+.current-icon {
+  color: #000000;
+  font-size: 42px;
+  padding-bottom: 8px;
+  padding-right: 55px;
+  text-align: center;
+}
+
+.current-desc {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.current-weather {
+  padding-bottom: 40px;
+}
+
+.weather-forecast {
+  text-align: center;
+}
+
+.day-title {
+  font-size: 20px;
+  color: #373a40;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  color: #6c757d;
+  font-size: 32px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.forecast-hilow {
+  font-size: 13px;
+  font-weight: 300;
+  color: #686d76;
+  text-align: center;
+}
+
+.scale-change {
+  padding-right: 45px;
+  text-align: center;
+}
+
+#time {
+  color: #6c757d;
+  font-size: 12px;
+  padding-top: 20px;
+}
