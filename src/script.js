@@ -12,6 +12,8 @@ stamp();
 function getTemperature(response) {
 document.querySelector("#display-city").innerHTML = response.data.name;
 document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp) + "°C";
+document.querySelector("#current-hi").innerHTML = `High ${Math.round(response.data.main.temp_max)}°C`;
+document.querySelector("#current-lo").innerHTML = `Low ${Math.round(response.data.main.temp_min)}°C`;
 }
 
 function searchCity(city){
@@ -30,17 +32,15 @@ let search = document.querySelector("form");
 search.addEventListener("submit",userSubmit);
 
 
-function changeScaleToF() {
+function changeFahrenheit() {
   let newTemp = document.querySelector("#current-temp");
   newTemp.innerHTML = "66°C";
 }
 let revise = document.querySelector("#fahrenheit-temp");
-revise.addEventListener("click",changeScaleToF);
+revise.addEventListener("click",changeFahrenheit);
 
-function changeScaleToC() {
-  let newTemp = document.querySelector("#current-temp");
-  newTemp.innerHTML = (`${temperatiure}`);
+function changeCelsius() {
+  document.querySelector("#current-temp").innerHTML = "19°C";
 }
 let revise2 = document.querySelector("#celsius-temp");
-revise2.addEventListener("click",changeScaleToC);
-
+revise2.addEventListener("click",changeCelsius);
