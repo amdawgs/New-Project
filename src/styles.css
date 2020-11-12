@@ -78,12 +78,9 @@
   text-align: center;
 }
 
-#time {
+#time,
+#footer {
   color: #6c757d;
   font-size: 12px;
   padding-top: 20px;
-}
-
-#footer {
-  font-size: 12px;
 }
