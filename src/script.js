@@ -20,7 +20,6 @@ document.querySelector("#current-temp").innerHTML = Math.round(response.data.mai
 document.querySelector("#current-hi").innerHTML = `High ${Math.round(response.data.main.temp_max)}°C`;
 document.querySelector("#current-lo").innerHTML = `Low ${Math.round(response.data.main.temp_min)}°C`;
 document.querySelector(".current-desc").innerHTML = response.data.weather[0].main;
-console.log(response.data.weather[0].icon);
 icon.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector("#time").innerHTML = formatStamp(response.data.dt * 1000);
 
@@ -50,18 +49,22 @@ function showFahrenheitTemp(event){
   document.querySelector("#current-hi").innerHTML = `High ${Math.round(fahrenheitTempHigh)}°F`;
   let fahrenheitTempLow = (celsiusTemperatureLow*9)/5 + 32;
   document.querySelector("#current-lo").innerHTML = `Low ${Math.round(fahrenheitTempLow)}°F`;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active")
 }
-let revise = document.querySelector("#fahrenheit-temp");
-revise.addEventListener("click",showFahrenheitTemp);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click",showFahrenheitTemp);
 
 function showCelsiusTemp(event) {
   event.preventDefault();
   document.querySelector("#current-temp").innerHTML = `${Math.round(celsiusTemperatureMain)}°C`;
   document.querySelector("#current-hi").innerHTML = `High ${Math.round(celsiusTemperatureHigh)}°C`;
   document.querySelector("#current-lo").innerHTML = `Low ${Math.round(celsiusTemperatureLow)}°C`;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active")
 }
-let revise2 = document.querySelector("#celsius-temp");
-revise2.addEventListener("click",showCelsiusTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click",showCelsiusTemp);
 
 
 let celsiusTemperatureMain = null;

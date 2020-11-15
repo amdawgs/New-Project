@@ -4,7 +4,7 @@ body {
 
 .weather-block {
   background: #000000;
-  box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 160px 50px #0ff;
+  box-shadow: 0 0 60px 30px #fff, 0 0 80px 60px #f0f, 0 0 160px 50px #000000;
   border-radius: 20px;
   margin: 20px auto;
   margin-top: 120px;
@@ -22,6 +22,7 @@ body {
 
 .current-city {
   color: #ffffff;
+  text-shadow: 0px 5px 5px #0779e4;
   font-family: "Lobster", cursive;
   font-size: 40px;
   font-weight: 700;
@@ -105,6 +106,14 @@ body {
   text-align: center;
 }
 
+.scale-change .active {
+  color: gray;
+}
+
+.scale-change .active:hover {
+  text-decoration: none;
+}
+
 #time,
 #last-refreshed {
   color: #ffffff;
@@ -118,6 +127,6 @@ body {
 #footer {
   color: #6c757d;
   font-size: 10px;
-  padding-top: 0px;
+  padding-top: 120px;
   text-align: center;
 }
