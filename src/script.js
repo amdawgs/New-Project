@@ -1,19 +1,28 @@
-function stamp(event) {
-let now = new Date();
+function formatStamp(timestamp) {
+let date = new Date(timestamp);
 let days =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-let day = days[now.getDay()];
-let hour = now.getHours();
-let minutes = now.getMinutes();
-let sentence = document.querySelector("#time");
- sentence.innerHTML = `Last refreshed ${day}, ${hour}:${minutes}`;
+let day = days[date.getDay()];
+let hour = date.getHours();
+if (hour < 10) {
+  hour = `0${hour}`
 }
-stamp();
+let minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`
+}
+return `${day}, ${hour}:${minutes}`;
+}
 
 function getTemperature(response) {
-document.querySelector("#display-city").innerHTML = response.data.name;
+let icon = document.querySelector("#current-icon");
+  document.querySelector("#display-city").innerHTML = response.data.name;
 document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp) + "°C";
 document.querySelector("#current-hi").innerHTML = `High ${Math.round(response.data.main.temp_max)}°C`;
 document.querySelector("#current-lo").innerHTML = `Low ${Math.round(response.data.main.temp_min)}°C`;
+document.querySelector(".current-desc").innerHTML = response.data.weather[0].main;
+console.log(response.data.weather[0].icon);
+icon.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+document.querySelector("#time").innerHTML = formatStamp(response.data.dt * 1000);
 }
 
 function searchCity(city){
@@ -34,13 +43,14 @@ search.addEventListener("submit",userSubmit);
 
 function changeFahrenheit() {
   let newTemp = document.querySelector("#current-temp");
-  newTemp.innerHTML = "66°C";
+  newTemp.innerHTML = "66°F";
 }
 let revise = document.querySelector("#fahrenheit-temp");
 revise.addEventListener("click",changeFahrenheit);
 
 function changeCelsius() {
-  document.querySelector("#current-temp").innerHTML = "19°C";
+  let newTemp = document.querySelector("#current-temp");
+  newTemp.innerHTML = "19°C";
 }
 let revise2 = document.querySelector("#celsius-temp");
 revise2.addEventListener("click",changeCelsius);
