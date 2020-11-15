@@ -23,6 +23,11 @@ document.querySelector(".current-desc").innerHTML = response.data.weather[0].mai
 console.log(response.data.weather[0].icon);
 icon.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector("#time").innerHTML = formatStamp(response.data.dt * 1000);
+
+celsiusTemperatureMain = response.data.main.temp;
+celsiusTemperatureHigh = response.data.main.temp_max;
+celsiusTemperatureLow = response.data.main.temp_min;
+
 }
 
 function searchCity(city){
@@ -37,22 +42,33 @@ function userSubmit(event) {
   searchCity(city);
 }
 
-searchCity("Tokyo");
+function showFahrenheitTemp(event){
+  event.preventDefault();
+  let fahrenheitTempMain = (celsiusTemperatureMain*9)/5 + 32;
+  document.querySelector("#current-temp").innerHTML = Math.round(fahrenheitTempMain) + "°F";
+  let fahrenheitTempHigh = (celsiusTemperatureHigh*9)/5 + 32;
+  document.querySelector("#current-hi").innerHTML = `High ${Math.round(fahrenheitTempHigh)}°F`;
+  let fahrenheitTempLow = (celsiusTemperatureLow*9)/5 + 32;
+  document.querySelector("#current-lo").innerHTML = `Low ${Math.round(fahrenheitTempLow)}°F`;
+}
+let revise = document.querySelector("#fahrenheit-temp");
+revise.addEventListener("click",showFahrenheitTemp);
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  document.querySelector("#current-temp").innerHTML = `${Math.round(celsiusTemperatureMain)}°C`;
+  document.querySelector("#current-hi").innerHTML = `High ${Math.round(celsiusTemperatureHigh)}°C`;
+  document.querySelector("#current-lo").innerHTML = `Low ${Math.round(celsiusTemperatureLow)}°C`;
+}
+let revise2 = document.querySelector("#celsius-temp");
+revise2.addEventListener("click",showCelsiusTemp);
+
+
+let celsiusTemperatureMain = null;
+let celsiusTemperatureHigh = null;
+let celsiusTemperatureLow = null;
 
 let search = document.querySelector("form");
 search.addEventListener("submit",userSubmit);
 
-
-function changeFahrenheit() {
-  let newTemp = document.querySelector("#current-temp");
-  newTemp.innerHTML = "66°F";
-}
-let revise = document.querySelector("#fahrenheit-temp");
-revise.addEventListener("click",changeFahrenheit);
-
-function changeCelsius() {
-  let newTemp = document.querySelector("#current-temp");
-  newTemp.innerHTML = "19°C";
-}
-let revise2 = document.querySelector("#celsius-temp");
-revise2.addEventListener("click",changeCelsius);
+searchCity("Tokyo");
