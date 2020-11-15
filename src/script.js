@@ -37,6 +37,8 @@ function userSubmit(event) {
   searchCity(city);
 }
 
+searchCity("Tokyo");
+
 let search = document.querySelector("form");
 search.addEventListener("submit",userSubmit);
 
