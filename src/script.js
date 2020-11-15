@@ -19,6 +19,8 @@ let icon = document.querySelector("#current-icon");
 document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp) + "°C";
 document.querySelector("#current-hi").innerHTML = `High ${Math.round(response.data.main.temp_max)}°C`;
 document.querySelector("#current-lo").innerHTML = `Low ${Math.round(response.data.main.temp_min)}°C`;
+document.querySelector(".current-humidity").innerHTML = `Humidity ${Math.round(response.data.main.humidity)}%`;
+document.querySelector(".current-wind").innerHTML = `Wind ${Math.round(response.data.wind.speed)} km/h`;
 document.querySelector(".current-desc").innerHTML = response.data.weather[0].main;
 icon.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector("#time").innerHTML = formatStamp(response.data.dt * 1000);
@@ -65,7 +67,6 @@ function showCelsiusTemp(event) {
 }
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click",showCelsiusTemp);
-
 
 let celsiusTemperatureMain = null;
 let celsiusTemperatureHigh = null;
