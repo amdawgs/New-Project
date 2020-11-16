@@ -79,52 +79,7 @@ body {
 }
 
 .current-weather {
-  padding-bottom: 40px;
-}
-
-.weather-forecast {
-  text-align: center;
-  display: block;
-  font-family: "Lobster", cursive;
-  margin: 0 auto;
-  border: 0px;
-  padding: 0px;
-}
-
-.row.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.day-title {
-  font-size: 24px;
-  color: #ffffff;
-  text-align: center;
-}
-
-#icon-forecast {
-  display: block;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.forecast-hilow {
-  font-size: 13px;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-}
-
-#day1-icon,
-#day2-icon,
-#day3-icon,
-#day4-icon,
-#day5-icon {
-  display: block;
-  height: 60px;
-  width: 60px;
-  margin: 0 auto;
-  padding: 0px;
+  padding-bottom: 20px;
 }
 
 .scale-change {

@@ -28,7 +28,6 @@ document.querySelector("#time").innerHTML = formatStamp(response.data.dt * 1000)
 celsiusTemperatureMain = response.data.main.temp;
 celsiusTemperatureHigh = response.data.main.temp_max;
 celsiusTemperatureLow = response.data.main.temp_min;
-
 }
 
 function searchCity(city){
@@ -71,6 +70,7 @@ celsiusLink.addEventListener("click",showCelsiusTemp);
 let celsiusTemperatureMain = null;
 let celsiusTemperatureHigh = null;
 let celsiusTemperatureLow = null;
+
 
 let search = document.querySelector("form");
 search.addEventListener("submit",userSubmit);
